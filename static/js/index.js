@@ -139,4 +139,52 @@ $(document).ready(function() {
     // Setup video autoplay for carousel
     setupVideoCarouselAutoplay();
 
+    // Initialize comparison sliders
+    initComparisonSliders();
 })
+
+// ===== Image Comparison Slider =====
+function initComparisonSliders() {
+  document.querySelectorAll('.comparison-slider').forEach(function(slider) {
+    var topWrapper = slider.querySelector('.comp-img-top-wrapper');
+    var divider = slider.querySelector('.comp-divider');
+    var handle = slider.querySelector('.comp-handle');
+    var isDragging = false;
+
+    function setPosition(pct) {
+      pct = Math.max(0, Math.min(100, pct));
+      topWrapper.style.clipPath = 'inset(0 ' + (100 - pct) + '% 0 0)';
+      divider.style.left = pct + '%';
+      handle.style.left = pct + '%';
+    }
+
+    function getPercent(e) {
+      var rect = slider.getBoundingClientRect();
+      var clientX = e.touches ? e.touches[0].clientX : e.clientX;
+      return ((clientX - rect.left) / rect.width) * 100;
+    }
+
+    function onStart(e) {
+      e.preventDefault();
+      isDragging = true;
+      setPosition(getPercent(e));
+    }
+
+    function onMove(e) {
+      if (!isDragging) return;
+      e.preventDefault();
+      setPosition(getPercent(e));
+    }
+
+    function onEnd() {
+      isDragging = false;
+    }
+
+    slider.addEventListener('mousedown', onStart);
+    slider.addEventListener('touchstart', onStart, { passive: false });
+    window.addEventListener('mousemove', onMove);
+    window.addEventListener('touchmove', onMove, { passive: false });
+    window.addEventListener('mouseup', onEnd);
+    window.addEventListener('touchend', onEnd);
+  });
+}
