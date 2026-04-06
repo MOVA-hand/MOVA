@@ -1,5 +1,8 @@
 /* Modern CSS Variables for consistent theming */
 :root {
+  --page-content-width: 90vw;
+  --abstract-content-width: 60vw;
+  --video-content-width: 75vw;
   --primary-color: #2563eb;
   --primary-hover: #1d4ed8;
   --secondary-color: #64748b;
@@ -36,6 +39,15 @@ body {
   background-color: var(--background-primary);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Keep main content around 90% viewport width to reduce visual crowding */
+.container,
+.container.is-max-desktop,
+.container.is-max-widescreen,
+.container.is-max-fullhd {
+  width: min(var(--page-content-width), 1680px);
+  max-width: min(var(--page-content-width), 1680px) !important;
 }
 
 
@@ -120,6 +132,7 @@ body {
     color: var(--text-primary) !important;
     margin-bottom: 2rem !important;
     line-height: 1.1 !important;
+  font-size: 2.5rem !important;
 }
 
 .publication-banner {
@@ -312,6 +325,7 @@ body {
 .title.is-3 {
   font-family: 'Inter', sans-serif !important;
   font-weight: 700 !important;
+  font-size: 1.75rem !important;
   color: var(--text-primary);
   margin-bottom: 2rem !important;
   position: relative;
@@ -345,6 +359,23 @@ body {
 .section.hero.is-light .content.has-text-justified {
   font-size: 0.98rem;
   line-height: 1.75;
+}
+
+/* Widen abstract block for better readability at desktop sizes */
+.section.hero.is-light .container.is-max-desktop {
+  width: min(var(--abstract-content-width), 1320px);
+  max-width: min(var(--abstract-content-width), 1320px) !important;
+}
+
+.video-comparisons-section .container {
+  width: min(var(--video-content-width), 1520px);
+  max-width: min(var(--video-content-width), 1520px) !important;
+}
+
+.section.hero.is-light .column.is-four-fifths {
+  width: 100%;
+  max-width: 100%;
+  flex: 0 0 100%;
 }
 
 /* Footer Improvements */
@@ -606,6 +637,14 @@ code {
 
 /* Mobile Responsive Improvements */
 @media screen and (max-width: 768px) {
+  .container,
+  .container.is-max-desktop,
+  .container.is-max-widescreen,
+  .container.is-max-fullhd {
+    width: 94vw;
+    max-width: 94vw !important;
+  }
+
   .hero-body {
     padding: 2rem 1rem;
   }
@@ -615,9 +654,13 @@ code {
   }
   
   .publication-title {
-    font-size: 2.5rem !important;
+    font-size: 2.2rem !important;
     line-height: 1.2 !important;
     margin-bottom: 1.5rem !important;
+  }
+
+  .title.is-3 {
+    font-size: 1.5rem !important;
   }
   
   .publication-authors {
@@ -669,7 +712,11 @@ code {
 
 @media screen and (max-width: 480px) {
   .publication-title {
-    font-size: 2rem !important;
+    font-size: 1.9rem !important;
+  }
+
+  .title.is-3 {
+    font-size: 1.35rem !important;
   }
   
   .hero-body {
