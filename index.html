@@ -6,8 +6,8 @@
   
   <!-- Primary Meta Tags -->
   <!-- TODO: Replace with your paper title and author names -->
-  <meta name="title" content="MOVA: Multimodal Gaussian Hand Avatar Reconstruction from a single image - Anonymous Authors">
-  <meta name="description" content="MOVA: A 3D Gaussian Splatting framework for single-image hand avatar reconstruction with occlusion-aware features.">
+  <meta name="title" content="OASIS: Occlusion-aware Single-image Hand Avatar Reconstruction via 3D Gaussian Splatting - Anonymous Authors">
+  <meta name="description" content="OASIS: A tailored 3D Gaussian Splatting framework for single-image hand avatar reconstruction with occlusion-aware Gaussian features.">
   <meta name="keywords" content="3D hand reconstruction, Gaussian splatting, hand avatar, single image, 3D reconstruction, computer vision, AI">
   <meta name="author" content="Anonymous Authors">
   <meta name="robots" content="index, follow">
@@ -18,8 +18,8 @@
   <!-- TODO: Replace with your institution or lab name -->
   <meta property="og:site_name" content="INSTITUTION_OR_LAB_NAME">
   <!-- TODO: Same as paper title above -->
-  <meta property="og:title" content="MOVA: Multimodal Gaussian Hand Avatar Reconstruction from a single image">
-  <meta property="og:description" content="MOVA: A 3D Gaussian Splatting framework for single-image hand avatar reconstruction with occlusion-aware features.">
+  <meta property="og:title" content="OASIS: Occlusion-aware Single-image Hand Avatar Reconstruction via 3D Gaussian Splatting">
+  <meta property="og:description" content="OASIS: A tailored 3D Gaussian Splatting framework for single-image hand avatar reconstruction with occlusion-aware Gaussian features.">
   <!-- TODO: Replace with your actual website URL -->
   <meta property="og:url" content="https://YOUR_DOMAIN.com/YOUR_PROJECT_PAGE">
   <!-- TODO: Create a 1200x630px preview image and update path -->
@@ -40,14 +40,14 @@
   <!-- TODO: Replace with first author's Twitter handle -->
   <meta name="twitter:creator" content="@AUTHOR_TWITTER_HANDLE">
   <!-- TODO: Same as paper title above -->
-  <meta name="twitter:title" content="MOVA: Multimodal Gaussian Hand Avatar Reconstruction from a single image">
-  <meta name="twitter:description" content="MOVA: A 3D Gaussian Splatting framework for single-image hand avatar reconstruction with occlusion-aware features.">
+  <meta name="twitter:title" content="OASIS: Occlusion-aware Single-image Hand Avatar Reconstruction via 3D Gaussian Splatting">
+  <meta name="twitter:description" content="OASIS: A tailored 3D Gaussian Splatting framework for single-image hand avatar reconstruction with occlusion-aware Gaussian features.">
   <!-- TODO: Same as social preview image above -->
   <meta name="twitter:image" content="https://YOUR_DOMAIN.com/static/images/social_preview.png">
   <meta name="twitter:image:alt" content="PAPER_TITLE - Research Preview">
 
   <!-- Academic/Research Specific -->
-  <meta name="citation_title" content="MOVA: Multimodal Gaussian Hand Avatar Reconstruction from a single image">
+  <meta name="citation_title" content="OASIS: Occlusion-aware Single-image Hand Avatar Reconstruction via 3D Gaussian Splatting">
   <meta name="citation_author" content="Anonymous Authors">
   <meta name="citation_publication_date" content="2024">
   <meta name="citation_conference_title" content="CONFERENCE_NAME">
@@ -68,7 +68,7 @@
 
 
   <!-- TODO: Replace with your paper title and authors -->
-  <title>MOVA: Multimodal Gaussian Hand Avatar Reconstruction from a single image - Anonymous Authors</title>
+  <title>OASIS: Occlusion-aware Single-image Hand Avatar Reconstruction via 3D Gaussian Splatting - Anonymous Authors</title>
   
   <!-- Favicon and App Icons -->
   <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
@@ -108,8 +108,8 @@
   {
     "@context": "https://schema.org",
     "@type": "ScholarlyArticle",
-    "headline": "MOVA: Multimodal Gaussian Hand Avatar Reconstruction from a single image",
-    "description": "A 3D Gaussian Splatting framework for single-image hand avatar reconstruction with occlusion-aware features.",
+    "headline": "OASIS: Occlusion-aware Single-image Hand Avatar Reconstruction via 3D Gaussian Splatting",
+    "description": "A tailored 3D Gaussian Splatting framework for single-image hand avatar reconstruction with occlusion-aware Gaussian features.",
     "author": [
       {
         "@type": "Person",
@@ -136,7 +136,7 @@
     "url": "https://YOUR_DOMAIN.com/YOUR_PROJECT_PAGE",
     "image": "https://YOUR_DOMAIN.com/static/images/social_preview.png",
     "keywords": ["KEYWORD1", "KEYWORD2", "KEYWORD3", "machine learning", "computer vision"],
-    "abstract": "FULL_ABSTRACT_TEXT_HERE",
+    "abstract": "Single-image 3D hand avatar reconstruction is fundamentally ill-posed and particularly challenging due to limited visual evidence under severe self-occlusion and the complex pose-dependent deformation of highly articulated hands. Existing methods predominantly rely on implicit NeRF-style representations, whose volumetric fitting is computationally expensive and often struggles to preserve fine-grained hand details. In this work, we present OASIS, a tailored 3D Gaussian Splatting framework for single-image hand avatar reconstruction. To faithfully encode sparse image-specific appearance cues in single-view reconstruction, we construct geometry-aligned visual evidence tokens by explicitly aligning input image observations with 3D hand geometry and context-adaptively tokenizing the resulting visual evidence. Since severe self-occlusion makes the reliability of image evidence inherently visibility-dependent, we introduce a visibility-conditioned point-image attention to reliably transfer visual evidence to geometric tokens, yielding occlusion-aware Gaussian features for faithful and robust reconstruction. To further capture non-rigid deformation of articulated hands, we introduce a Feature-on-Mesh representation to enable Gaussian deformation to be guided by local surface stretching. Under this framework, we adopt a one-shot adaptation scheme that learns a shared hand prior from multi-identity training data and then fits it to a target image for target-specific reconstruction. Extensive experiments show that OASIS outperforms existing baselines in both visual fidelity and efficiency across challenging poses and in-the-wild scenarios, and further demonstrates strong versatility in downstream applications such as text-to-avatar generation and texture editing. Code will be released upon.",
     "citation": "BIBTEX_CITATION_HERE",
     "isAccessibleForFree": true,
     "license": "https://creativecommons.org/licenses/by/4.0/",
@@ -180,54 +180,6 @@
     <i class="fas fa-chevron-up"></i>
   </button>
 
-  <!-- More Works Dropdown -->
-  <div class="more-works-container">
-    <button class="more-works-btn" onclick="toggleMoreWorks()" title="View More Works from Our Lab">
-      <i class="fas fa-flask"></i>
-      More Works
-      <i class="fas fa-chevron-down dropdown-arrow"></i>
-    </button>
-    <div class="more-works-dropdown" id="moreWorksDropdown">
-      <div class="dropdown-header">
-        <h4>More Works from Our Lab</h4>
-        <button class="close-btn" onclick="toggleMoreWorks()">
-          <i class="fas fa-times"></i>
-        </button>
-      </div>
-      <div class="works-list">
-        <!-- TODO: Replace with your lab's related works -->
-        <a href="https://arxiv.org/abs/PAPER_ID_1" class="work-item" target="_blank">
-          <div class="work-info">
-            <!-- TODO: Replace with actual paper title -->
-            <h5>Paper Title 1</h5>
-            <!-- TODO: Replace with brief description -->
-            <p>Brief description of the work and its main contribution.</p>
-            <!-- TODO: Replace with venue and year -->
-            <span class="work-venue">Conference/Journal 2024</span>
-          </div>
-          <i class="fas fa-external-link-alt"></i>
-        </a>
-        <!-- TODO: Add more related works or remove extra items -->
-        <a href="https://arxiv.org/abs/PAPER_ID_2" class="work-item" target="_blank">
-          <div class="work-info">
-            <h5>Paper Title 2</h5>
-            <p>Brief description of the work and its main contribution.</p>
-            <span class="work-venue">Conference/Journal 2023</span>
-          </div>
-          <i class="fas fa-external-link-alt"></i>
-        </a>
-        <a href="https://arxiv.org/abs/PAPER_ID_3" class="work-item" target="_blank">
-          <div class="work-info">
-            <h5>Paper Title 3</h5>
-            <p>Brief description of the work and its main contribution.</p>
-            <span class="work-venue">Conference/Journal 2023</span>
-          </div>
-          <i class="fas fa-external-link-alt"></i>
-        </a>
-      </div>
-    </div>
-  </div>
-
   <main id="main-content">
   <section class="hero">
     <div class="hero-body">
@@ -235,7 +187,7 @@
         <div class="columns is-centered">
           <div class="column has-text-centered">
             <!-- TODO: Replace with your paper title -->
-            <h1 class="title is-1 publication-title">MOVA: Multimodal Gaussian Hand Avatar Reconstruction from a single image</h1>
+            <h1 class="title is-1 publication-title">OASIS: Occlusion-aware Single-image Hand Avatar Reconstruction via 3D Gaussian Splatting</h1>
             <div class="is-size-5 publication-authors">
               <span class="author-block">Anonymous Authors</span>
             </div>
@@ -274,7 +226,7 @@
 <section class="hero teaser">
   <div class="container" style="max-width:1400px;">
     <div class="hero-body">
-      <img src="static/images/teaser.jpg" alt="MOVA teaser" style="width:100%; height:auto; display:block;">
+      <img src="static/images/teaser.jpg" alt="OASIS teaser" style="width:100%; height:auto; display:block;">
     </div>
   </div>
 </section>
@@ -288,7 +240,7 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Single-image 3D hand avatar reconstruction is fundamentally ill-posed due to limited visual evidence, severe self-occlusion, and the complex pose-dependent deformation of highly articulated hands, making faithful appearance recovery from a single view particularly challenging. Existing methods predominantly rely on implicit NeRF-style representations, whose volumetric fitting is computationally expensive and often struggles to preserve fine-grained hand details. In this work, we present MOVA, a tailored 3D Gaussian Splatting framework for single-image hand avatar reconstruction. To faithfully encode sparse image-specific appearance cues in single-view reconstruction, we construct geometry-aligned visual evidence tokens by explicitly aligning input image observations with 3D hand geometry and context-adaptively tokenizing the resulting visual evidence. Since severe self-occlusion makes the reliability of point-associated image evidence inherently visibility-dependent, we construct occlusion-aware Gaussian features by integrating geometric structure with occlusion-aware visual evidence, enabling faithful and robust reconstruction under occlusion. To further capture the pose-dependent non-rigid deformation of articulated hands, we introduce a Feature-on-Mesh representation to enable Gaussian deformation to be guided by local surface stretching. Under this framework, we adopt a one-shot adaptation scheme that learns a shared hand prior from multi-identity training data and then fits it to a target image for target-specific reconstruction. Extensive experiments show that MOVA outperforms existing baselines in both visual fidelity and rendering efficiency across challenging poses and in-the-wild scenarios, and further demonstrates strong versatility in downstream applications, including text-to-avatar generation and texture editing. Code will be released upon paper acceptance.
+            Single-image 3D hand avatar reconstruction is fundamentally ill-posed and particularly challenging due to limited visual evidence under severe self-occlusion and the complex pose-dependent deformation of highly articulated hands. Existing methods predominantly rely on implicit NeRF-style representations, whose volumetric fitting is computationally expensive and often struggles to preserve fine-grained hand details. In this work, we present OASIS, a tailored 3D Gaussian Splatting framework for single-image hand avatar reconstruction. To faithfully encode sparse image-specific appearance cues in single-view reconstruction, we construct geometry-aligned visual evidence tokens by explicitly aligning input image observations with 3D hand geometry and context-adaptively tokenizing the resulting visual evidence. Since severe self-occlusion makes the reliability of image evidence inherently visibility-dependent, we introduce a visibility-conditioned point-image attention to reliably transfer visual evidence to geometric tokens, yielding occlusion-aware Gaussian features for faithful and robust reconstruction. To further capture non-rigid deformation of articulated hands, we introduce a Feature-on-Mesh representation to enable Gaussian deformation to be guided by local surface stretching. Under this framework, we adopt a one-shot adaptation scheme that learns a shared hand prior from multi-identity training data and then fits it to a target image for target-specific reconstruction. Extensive experiments show that OASIS outperforms existing baselines in both visual fidelity and efficiency across challenging poses and in-the-wild scenarios, and further demonstrates strong versatility in downstream applications such as text-to-avatar generation and texture editing. Code will be released upon.
           </p>
         </div>
       </div>
@@ -307,7 +259,136 @@
 </section>
 
 
-
+<!-- Video comparisons -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title is-3">Video Comparisons</h2>
+      <div class="video-demo-rows">
+        <!-- Row 1 -->
+        <div class="video-demo-row">
+          <div class="video-demo-image">
+            <img src="static/images/carousel1.jpg" alt="Input Image 1" style="width:100%; height:100%; object-fit:cover; display:block;">
+            <span class="video-demo-label-image">Input Image</span>
+          </div>
+          <div class="comparison-slider video-demo-compare">
+            <img class="comp-img-bottom" src="static/images/carousel1-ohta.png" alt="Ours Preview 1">
+            <div class="comp-img-top-wrapper">
+              <img src="static/images/carousel1-ours.png" alt="OHTA Preview 1">
+            </div>
+            <div class="comp-divider"></div>
+            <div class="comp-handle"></div>
+            <span class="comp-label comp-label-left">Ours</span>
+            <span class="comp-label comp-label-right">OHTA</span>
+            <span class="video-demo-label-image">Reconstruction results</span>
+          </div>
+          <div class="video-demo-single-video">
+            <video autoplay muted loop playsinline preload="metadata" style="width:100%; height:100%; object-fit:cover;">
+              <source src="static/videos/carousel1-ours.mp4" type="video/mp4">
+            </video>
+            <span class="video-demo-label-video">Ours Animation</span>
+          </div>
+          <div class="video-demo-single-video">
+            <video autoplay muted loop playsinline preload="metadata" style="width:100%; height:100%; object-fit:cover;">
+              <source src="static/videos/carousel1-ohta.mp4" type="video/mp4">
+            </video>
+            <span class="video-demo-label-video">OHTA Animation</span>
+          </div>
+        </div>
+        <!-- Row 2 -->
+        <div class="video-demo-row">
+          <div class="video-demo-image">
+            <img src="static/images/carousel2.jpg" alt="Input Image 2" style="width:100%; height:100%; object-fit:cover; display:block;">
+            <span class="video-demo-label-image">Input Image</span>
+          </div>
+          <div class="comparison-slider video-demo-compare">
+            <img class="comp-img-bottom" src="static/images/app/iron-ohta.png" alt="OHTA Preview 2">
+            <div class="comp-img-top-wrapper">
+              <img src="static/images/app/iron-ours.jpg" alt="Ours Preview 2">
+            </div>
+            <div class="comp-divider"></div>
+            <div class="comp-handle"></div>
+            <span class="comp-label comp-label-left">Ours</span>
+            <span class="comp-label comp-label-right">OHTA</span>
+            <span class="video-demo-label-image">Reconstruction results</span>
+          </div>
+          <div class="video-demo-single-video">
+            <video autoplay muted loop playsinline preload="metadata" style="width:100%; height:100%; object-fit:cover;">
+              <source src="static/videos/carousel2-ours.mp4" type="video/mp4">
+            </video>
+            <span class="video-demo-label-video">Ours Animation</span>
+          </div>
+          <div class="video-demo-single-video">
+            <video autoplay muted loop playsinline preload="metadata" style="width:100%; height:100%; object-fit:cover;">
+              <source src="static/videos/carousel2-ohta.mp4" type="video/mp4">
+            </video>
+            <span class="video-demo-label-video">OHTA Animation</span>
+          </div>
+        </div>
+        <!-- Row 3 -->
+        <div class="video-demo-row">
+          <div class="video-demo-image">
+            <img src="static/images/carousel3.jpg" alt="Input Image 3" style="width:100%; height:100%; object-fit:cover; display:block;">
+            <span class="video-demo-label-image">Input Image</span>
+          </div>
+          <div class="comparison-slider video-demo-compare">
+            <img class="comp-img-bottom" src="static/images/carousel3-ohta.jpg" alt="Ours Preview 3">
+            <div class="comp-img-top-wrapper">
+              <img src="static/images/carousel3-ours.jpg" alt="OHTA Preview 3">
+            </div>
+            <div class="comp-divider"></div>
+            <div class="comp-handle"></div>
+            <span class="comp-label comp-label-left">Ours</span>
+            <span class="comp-label comp-label-right">OHTA</span>
+            <span class="video-demo-label-image">Reconstruction results</span>
+          </div>
+          <div class="video-demo-single-video">
+            <video autoplay muted loop playsinline preload="metadata" style="width:100%; height:100%; object-fit:cover;">
+              <source src="static/videos/carousel3-ours.mp4" type="video/mp4">
+            </video>
+            <span class="video-demo-label-video">Ours Animation</span>
+          </div>
+          <div class="video-demo-single-video">
+            <video autoplay muted loop playsinline preload="metadata" style="width:100%; height:100%; object-fit:cover;">
+              <source src="static/videos/carousel3-ohta.mp4" type="video/mp4">
+            </video>
+            <span class="video-demo-label-video">OHTA Animation</span>
+          </div>
+        </div>
+        <!-- Row 4 -->
+        <div class="video-demo-row">
+          <div class="video-demo-image">
+            <img src="static/images/carousel4.png" alt="Input Image 4" style="width:100%; height:100%; object-fit:cover; display:block;">
+            <span class="video-demo-label-image">Input Image</span>
+          </div>
+          <div class="comparison-slider video-demo-compare">
+            <img class="comp-img-bottom" src="static/images/carousel4-ohta.png" alt="Ours Preview 4">
+            <div class="comp-img-top-wrapper">
+              <img src="static/images/carousel4-ours.png" alt="OHTA Preview 4">
+            </div>
+            <div class="comp-divider"></div>
+            <div class="comp-handle"></div>
+            <span class="comp-label comp-label-left">Ours</span>
+            <span class="comp-label comp-label-right">OHTA</span>
+            <span class="video-demo-label-image">Reconstruction results</span>
+          </div>
+          <div class="video-demo-single-video">
+            <video autoplay muted loop playsinline preload="metadata" style="width:100%; height:100%; object-fit:cover;">
+              <source src="static/videos/carousel4-ours.mp4" type="video/mp4">
+            </video>
+            <span class="video-demo-label-video">Ours Animation</span>
+          </div>
+          <div class="video-demo-single-video">
+            <video autoplay muted loop playsinline preload="metadata" style="width:100%; height:100%; object-fit:cover;">
+              <source src="static/videos/carousel4-ohta.mp4" type="video/mp4">
+            </video>
+            <span class="video-demo-label-video">OHTA Animation</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 
 
@@ -331,117 +412,7 @@
 <!-- End Experimental Results -->
 
 
-
-<!-- Applications -->
-<section class="hero is-small is-light">
-  <div class="hero-body">
-    <div class="container">
-      <h2 class="title is-3">Applications</h2>
-      <div class="app-grid">
-        <div class="app-grid-item">
-          <h5>"Avatar"</h5>
-          <div class="comparison-slider">
-            <img class="comp-img-bottom" src="static/images/app/avatar-ohta.png" alt="OHTA">
-            <div class="comp-img-top-wrapper"><img src="static/images/app/avatar-ours.png" alt="Ours"></div>
-            <div class="comp-divider"></div>
-            <div class="comp-handle"></div>
-            <span class="comp-label comp-label-left">Ours</span>
-            <span class="comp-label comp-label-right">OHTA</span>
-          </div>
-        </div>
-        <div class="app-grid-item">
-          <h5>"Iron Man"</h5>
-          <div class="comparison-slider">
-            <img class="comp-img-bottom" src="static/images/app/iron-ohta.png" alt="OHTA">
-            <div class="comp-img-top-wrapper"><img src="static/images/app/iron-ours.jpg" alt="Ours"></div>
-            <div class="comp-divider"></div>
-            <div class="comp-handle"></div>
-            <span class="comp-label comp-label-left">Ours</span>
-            <span class="comp-label comp-label-right">OHTA</span>
-          </div>
-        </div>
-        <div class="app-grid-item">
-          <h5>"Hulk"</h5>
-          <div class="comparison-slider">
-            <img class="comp-img-bottom" src="static/images/app/hulk-ohta.png" alt="OHTA">
-            <div class="comp-img-top-wrapper"><img src="static/images/app/hulk-ours.png" alt="Ours"></div>
-            <div class="comp-divider"></div>
-            <div class="comp-handle"></div>
-            <span class="comp-label comp-label-left">Ours</span>
-            <span class="comp-label comp-label-right">OHTA</span>
-          </div>
-        </div>
-        <div class="app-grid-item">
-          <h5>"Yellow Nail"</h5>
-          <div class="comparison-slider">
-            <img class="comp-img-bottom" src="static/images/app/yellow-ohta.jpg" alt="OHTA">
-            <div class="comp-img-top-wrapper"><img src="static/images/app/yellow-ours.jpg" alt="Ours"></div>
-            <div class="comp-divider"></div>
-            <div class="comp-handle"></div>
-            <span class="comp-label comp-label-left">Ours</span>
-            <span class="comp-label comp-label-right">OHTA</span>
-          </div>
-        </div>
-        <div class="app-grid-item">
-          <h5>"Tattoo and Ring"</h5>
-          <div class="comparison-slider">
-            <img class="comp-img-bottom" src="static/images/app/tatto-ohta.png" alt="OHTA">
-            <div class="comp-img-top-wrapper"><img src="static/images/app/tatto-ours.png" alt="Ours"></div>
-            <div class="comp-divider"></div>
-            <div class="comp-handle"></div>
-            <span class="comp-label comp-label-left">Ours</span>
-            <span class="comp-label comp-label-right">OHTA</span>
-          </div>
-        </div>
-        <div class="app-grid-item">
-          <h5>"Old Man"</h5>
-          <div class="comparison-slider">
-            <img class="comp-img-bottom" src="static/images/app/old-ohta.jpg" alt="OHTA">
-            <div class="comp-img-top-wrapper"><img src="static/images/app/old-ours.jpg" alt="Ours"></div>
-            <div class="comp-divider"></div>
-            <div class="comp-handle"></div>
-            <span class="comp-label comp-label-left">Ours</span>
-            <span class="comp-label comp-label-right">OHTA</span>
-          </div>
-        </div>
-        <div class="app-grid-item">
-          <h5>"Flowers"</h5>
-          <div class="comparison-slider">
-            <img class="comp-img-bottom" src="static/images/app/flower-ohta.jpg" alt="OHTA">
-            <div class="comp-img-top-wrapper"><img src="static/images/app/flower-ours.jpg" alt="Ours"></div>
-            <div class="comp-divider"></div>
-            <div class="comp-handle"></div>
-            <span class="comp-label comp-label-left">Ours</span>
-            <span class="comp-label comp-label-right">OHTA</span>
-          </div>
-        </div>
-        <div class="app-grid-item">
-          <h5>"Ring and Blue Nail"</h5>
-          <div class="comparison-slider">
-            <img class="comp-img-bottom" src="static/images/app/blue-ohta.jpg" alt="OHTA">
-            <div class="comp-img-top-wrapper"><img src="static/images/app/blue-ours.jpg" alt="Ours"></div>
-            <div class="comp-divider"></div>
-            <div class="comp-handle"></div>
-            <span class="comp-label comp-label-left">Ours</span>
-            <span class="comp-label comp-label-right">OHTA</span>
-          </div>
-        </div>
-        <div class="app-grid-item">
-          <h5>"Rabbit Tattoo"</h5>
-          <div class="comparison-slider">
-            <img class="comp-img-bottom" src="static/images/app/rabbit-ohta.png" alt="OHTA">
-            <div class="comp-img-top-wrapper"><img src="static/images/app/rabbit-ours.jpg" alt="Ours"></div>
-            <div class="comp-divider"></div>
-            <div class="comp-handle"></div>
-            <span class="comp-label comp-label-left">Ours</span>
-            <span class="comp-label comp-label-right">OHTA</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- End Applications -->
+<!-- End video comparisons -->
 
 
 
@@ -462,8 +433,8 @@
           <span class="copy-text">Copy</span>
         </button>
       </div>
-      <pre id="bibtex-code"><code>@article{MOVA2025,
-  title={MOVA: Multimodal Gaussian Hand Avatar Reconstruction from a single image},
+        <pre id="bibtex-code"><code>@article{OASIS2026,
+      title={OASIS: Occlusion-aware Single-image Hand Avatar Reconstruction via 3D Gaussian Splatting},
   author={Anonymous Authors},
   year={2025}
 }</code></pre>

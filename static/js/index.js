@@ -4,6 +4,10 @@ window.HELP_IMPROVE_VIDEOJS = false;
 function toggleMoreWorks() {
     const dropdown = document.getElementById('moreWorksDropdown');
     const button = document.querySelector('.more-works-btn');
+
+    if (!dropdown || !button) {
+        return;
+    }
     
     if (dropdown.classList.contains('show')) {
         dropdown.classList.remove('show');
@@ -20,7 +24,7 @@ document.addEventListener('click', function(event) {
     const dropdown = document.getElementById('moreWorksDropdown');
     const button = document.querySelector('.more-works-btn');
     
-    if (container && !container.contains(event.target)) {
+    if (container && dropdown && button && !container.contains(event.target)) {
         dropdown.classList.remove('show');
         button.classList.remove('active');
     }
@@ -31,6 +35,9 @@ document.addEventListener('keydown', function(event) {
     if (event.key === 'Escape') {
         const dropdown = document.getElementById('moreWorksDropdown');
         const button = document.querySelector('.more-works-btn');
+        if (!dropdown || !button) {
+            return;
+        }
         dropdown.classList.remove('show');
         button.classList.remove('active');
     }
@@ -90,34 +97,45 @@ window.addEventListener('scroll', function() {
     }
 });
 
-// Video carousel autoplay when in view
-function setupVideoCarouselAutoplay() {
-    const carouselVideos = document.querySelectorAll('.results-carousel video');
+// Autoplay comparison videos only when visible
+function setupManagedVideoPlayback() {
+    const managedVideos = document.querySelectorAll('.comparison-slider video, .results-carousel video');
     
-    if (carouselVideos.length === 0) return;
+    if (managedVideos.length === 0 || typeof IntersectionObserver === 'undefined') return;
+
+    function tryPlay(video) {
+        video.muted = true;
+        video.defaultMuted = true;
+        video.playsInline = true;
+        video.play().catch(e => {
+            console.log('Autoplay prevented:', e);
+        });
+    }
     
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             const video = entry.target;
             if (entry.isIntersecting) {
-                // Video is in view, play it
-                video.play().catch(e => {
-                    // Autoplay failed, probably due to browser policy
-                    console.log('Autoplay prevented:', e);
-                });
+                tryPlay(video);
             } else {
-                // Video is out of view, pause it
                 video.pause();
             }
         });
     }, {
-        threshold: 0.5 // Trigger when 50% of the video is visible
+        threshold: 0.15,
+        rootMargin: '100px 0px 100px 0px'
     });
     
-    carouselVideos.forEach(video => {
+    managedVideos.forEach(video => {
+        video.load();
+        video.addEventListener('loadeddata', function() {
+            tryPlay(video);
+        });
         observer.observe(video);
     });
 }
+
+// Videos in the new demo layout play independently, no sync needed
 
 $(document).ready(function() {
     // Check for click events on the navbar burger icon
@@ -136,10 +154,10 @@ $(document).ready(function() {
 	
     bulmaSlider.attach();
     
-    // Setup video autoplay for carousel
-    setupVideoCarouselAutoplay();
+    // Setup managed playback for all videos
+    setupManagedVideoPlayback();
 
-    // Initialize comparison sliders
+    // Initialize comparison sliders (for applications section)
     initComparisonSliders();
 })
 
