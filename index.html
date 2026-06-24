@@ -356,6 +356,38 @@
             <span class="video-demo-label-video">OHTA Animation</span>
           </div>
         </div>
+
+        Row 3
+        <div class="video-demo-row">
+          <div class="video-demo-image">
+            <img src="static/images/carousel6.jpg" alt="Input Image 3" style="width:100%; height:100%; object-fit:cover; display:block;">
+            <span class="video-demo-label-image">Input Image</span>
+          </div>
+          <div class="comparison-slider video-demo-compare">
+            <img class="comp-img-bottom" src="static/images/carousel6-ohta.png" alt="Ours Preview 3">
+            <div class="comp-img-top-wrapper">
+              <img src="static/images/carousel6-ours.png" alt="OHTA Preview 3">
+            </div>
+            <div class="comp-divider"></div>
+            <div class="comp-handle"></div>
+            <span class="comp-label comp-label-left">Ours</span>
+            <span class="comp-label comp-label-right">OHTA</span>
+            <span class="video-demo-label-image">Reconstruction results</span>
+          </div>
+          <div class="video-demo-single-video">
+            <video autoplay muted loop playsinline preload="metadata" style="width:100%; height:100%; object-fit:cover;">
+              <source src="static/videos/carousel5-ours.mp4" type="video/mp4">
+            </video>
+            <span class="video-demo-label-video">Ours Animation</span>
+          </div>
+          <div class="video-demo-single-video">
+            <video autoplay muted loop playsinline preload="metadata" style="width:100%; height:100%; object-fit:cover;">
+              <source src="static/videos/carousel5-ohta.mp4" type="video/mp4">
+            </video>
+            <span class="video-demo-label-video">OHTA Animation</span>
+          </div>
+        </div>
+
         <!-- Row 3 -->
         <div class="video-demo-row">
           <div class="video-demo-image">
@@ -443,6 +475,206 @@
 <!-- End Experimental Results -->
 
 
+<!-- Getting Started -->
+<section class="section getting-started-section" id="getting-started">
+  <div class="container">
+    <h2 class="title is-3">Getting Started</h2>
+
+    <div class="instruction-update">
+      <span class="instruction-update-icon"><i class="fas fa-code-branch"></i></span>
+      <span>[07/2026] Code released.</span>
+    </div>
+
+    <div class="instruction-grid">
+      <article class="instruction-card instruction-card-wide">
+        <h3><span class="instruction-icon"><i class="fas fa-terminal"></i></span>Installation</h3>
+        <p>
+          We test the CUDA 11.8 environment with Linux, Python 3.10, PyTorch 2.3.0, and torchvision 0.18.0.
+        </p>
+        <pre><code>git clone https://github.com/ivyyy77/oasis-hand-code.git
+cd oasis-hand-code
+
+conda create -n oasis python=3.10 -y
+conda activate oasis
+
+pip install rembg
+pip install torch==2.3.0 torchvision==0.18.0 torchaudio==2.3.0 --index-url https://download.pytorch.org/whl/cu118
+pip install -U xformers==0.0.26.post1 --index-url https://download.pytorch.org/whl/cu118
+pip install -r requirements.txt
+
+pip uninstall basicsr -y
+pip install git+https://github.com/XPixelGroup/BasicSR
+pip install "git+https://github.com/facebookresearch/pytorch3d.git"
+pip install git+https://github.com/hitsz-zuoqi/sam2/
+pip install git+https://github.com/ashawkey/diff-gaussian-rasterization/
+pip install git+https://github.com/camenduru/simple-knn/</code></pre>
+      </article>
+
+      <article class="instruction-card">
+        <h3><span class="instruction-icon"><i class="fas fa-cubes"></i></span>Required Assets</h3>
+        <p>
+          Place the hand model, segmentation, dense-point, and UV assets under the repository root.
+          The current scripts read MANO annotations from each sample, so no separate HaMeR step is required for the prepared examples.
+          Download third-party assets from the official
+          <a href="https://mano.is.tue.mpg.de/" target="_blank">MANO</a>,
+          <a href="https://github.com/facebookresearch/sam2" target="_blank">SAM 2</a>,
+          <a href="https://github.com/facebookresearch/sapiens" target="_blank">Sapiens</a>, and
+          <a href="https://github.com/ZhengPeng7/BiRefNet" target="_blank">BiRefNet</a>
+          pages, then keep the filenames and folders as below.
+        </p>
+        <pre><code>checkpoint/
+  iteration_30000.ckpt
+pretrained_models/
+  BiRefNet-general-epoch_244.pth
+  dense_sample_points/manohd_semantic.ply
+  human_model_files/
+    mano/
+  mano_subdiv/mano_subdiv_2.pth
+  sam2/
+  sapiens/pretrained/checkpoints/sapiens_1b/
+mano_uv/
+  change/change_r.npy
+  original mano template/hand.obj</code></pre>
+      </article>
+
+      <article class="instruction-card">
+        <h3><span class="instruction-icon"><i class="fas fa-download"></i></span>Pre-trained Model</h3>
+        <p>
+          Use the released OASIS checkpoint as the default prior for reconstruction, evaluation, and finetuning.
+          Download the pretrained checkpoint from
+          <a href="https://drive.google.com/file/d/1UVMyPexOIp4GT0We31dW5kTJjEd7Wcdw/view?usp=drive_link" target="_blank">Google Drive</a>
+          and place it under <code>checkpoint/iteration_30000.ckpt</code>.
+        </p>
+        <pre><code>checkpoint/
+  iteration_30000.ckpt</code></pre>
+        <pre><code>mkdir -p checkpoint
+gdown --fuzzy "https://drive.google.com/file/d/1UVMyPexOIp4GT0We31dW5kTJjEd7Wcdw/view?usp=drive_link" -O checkpoint/iteration_30000.ckpt</code></pre>
+        <p class="instruction-note">
+          The filename is parsed automatically by the scripts, so the iteration number should remain in the checkpoint name.
+        </p>
+      </article>
+
+      <article class="instruction-card instruction-card-wide">
+        <h3><span class="instruction-icon"><i class="fas fa-database"></i></span>Data Preparation</h3>
+        <p>
+          Training and evaluation are organized around
+          <a href="https://mks0601.github.io/InterHand2.6M/" target="_blank">InterHand2.6M</a>
+          5fps, following the preprocessing pipeline of
+          <a href="https://seanchenxy.github.io/HandAvatarWeb/" target="_blank">HandAvatar</a>
+          for the detailed data processing steps. For in-the-wild samples, refer to
+          <a href="https://github.com/rolpotamias/WiLoR" target="_blank">WiLoR</a>
+          for hand localization and reconstruction preprocessing, then convert the WiLoR outputs into the image,
+          mask, and MANO annotation triplets shown below.
+        </p>
+        <pre><code>${DATA_ROOT}/
+  annotations/
+    train/InterHand2.6M_train_data.json
+    train/InterHand2.6M_train_camera.json
+    train/InterHand2.6M_train_joint_3d.json
+    train/InterHand2.6M_train_MANO_NeuralAnnot.json
+    test/...
+  InterHand2.6M_5fps_batch1/
+    images/
+    masks_removeblack/
+    preprocess_ohta_our_full/
+
+example_data/text-to-avatar/
+  images/{avatar_3.jpg,iron_man_1.jpg,light_yellow_new.jpg}
+  masks/{avatar_3.png,iron_man_1.png,light_yellow_new.png}
+  anno/test_Capture0_ROM03_RT_No_Occlusion_cam400272_image15012.pkl
+example_data/interhand2.6m/
+  images/test_Capture0_ROM03_RT_No_Occlusion_cam400272_image15012.jpg
+  masks/test_Capture0_ROM03_RT_No_Occlusion_cam400272_image15012.png
+  anno/test_Capture0_ROM03_RT_No_Occlusion_cam400272_image15012.pkl
+example_data/editing/
+  images/rose.jpg
+  masks/{rose.png,rose_edit.png,rose_only.png}
+  anno/rose.pkl</code></pre>
+        <pre><code>python generate_interhand_anno.py \
+  --dataset-root ${DATA_ROOT} \
+  --subject test/Capture0/ROM03_RT_No_Occlusion \
+  --phase test \
+  --frame test/Capture0/ROM03_RT_No_Occlusion/cam400272/image15012.jpg</code></pre>
+      </article>
+
+      <article class="instruction-card">
+        <h3><span class="instruction-icon"><i class="fas fa-magic"></i></span>One-shot Reconstruction</h3>
+        <p>
+          For an in-the-wild image, provide a matching mask and MANO annotation in the sibling folders shown above.
+        </p>
+        <pre><code>python finetune_wild_id2_ohta.py \
+  --input-dir example_data/in_the_wild/images/name.png \
+  --checkpoint-file checkpoint/iteration_30000.ckpt \
+  --output-path output/finetune \
+  --iter=400 \
+  --iter_inversion_stage1=200 \
+  --animate_to_handavatar=False</code></pre>
+      </article>
+
+      <article class="instruction-card">
+        <h3><span class="instruction-icon"><i class="fas fa-chart-line"></i></span>Training and Evaluation</h3>
+        <p>
+          The prior training entry is <code>train_interhand.py</code>. InterHand adaptation and evaluation use
+          <code>finetune_interhand_ohta.py</code> with inversion, pseudo-view generation, and pseudo-GT finetuning.
+        </p>
+        <pre><code>python train_interhand.py infer.hand_lrm model_name=LHM-1B \
+  --checkpoint-path checkpoint/interhand \
+  --output-path output/interhand \
+  --iter=40000</code></pre>
+        <pre><code>python train_interhand.py infer.hand_lrm model_name=LHM-1B \
+  --only_eval \
+  --checkpoint-file checkpoint/iteration_30000.ckpt \
+  --output-path output/eval_interhand</code></pre>
+        <pre><code>python finetune_interhand_ohta.py \
+  --checkpoint-file checkpoint/iteration_30000.ckpt \
+  --output-path output/finetune_interhand_ohta \
+  --iter=1200 \
+  --use_two_stage_inversion=True \
+  --iter_inversion_stage1=100 \
+  --iter_inversion_stage2=0 \
+  --pseudo-views=8</code></pre>
+      </article>
+
+      <article class="instruction-card instruction-card-wide">
+        <h3><span class="instruction-icon"><i class="fas fa-paint-brush"></i></span>Editing Finetune</h3>
+        <p>
+          For texture or text-to-avatar editing, use the edit-specific wild-image entry. Place the edited target in
+          <code>images/</code>, the foreground mask in <code>masks/</code>, the edit mask as <code>masks/name_edit.png</code>,
+          and the MANO annotation in <code>anno/</code>.
+        </p>
+        <pre><code>python finetune_edit_wild_ohta.py \
+  --input-dir example_data/editing/images/pikachu.jpg \
+  --checkpoint-file checkpoint/iteration_30000.ckpt \
+  --output-path output/finetune_edit \
+  --iter=800 \
+  --iter_inversion=100 \
+  --edit-unmask-iter=0 \
+  --edit-mask-weight=30 \
+  --pseudo-views=8</code></pre>
+      </article>
+
+      <article class="instruction-card instruction-card-wide">
+        <h3><span class="instruction-icon"><i class="fas fa-balance-scale"></i></span>License and Acknowledgements</h3>
+        <p>
+          The released code is provided under the Apache License 2.0. Please also respect the licenses of MANO,
+          InterHand2.6M, and any downloaded third-party model weights.
+        </p>
+        <p>
+          We thank
+          <a href="https://github.com/aigc3d/LHM" target="_blank">LHM</a>,
+          <a href="https://repo-sam.inria.fr/fungraph/3d-gaussian-splatting/" target="_blank">3D Gaussian Splatting</a>,
+          <a href="https://seanchenxy.github.io/HandAvatarWeb/" target="_blank">HandAvatar</a>, and
+          <a href="https://github.com/bytedance/OHTA" target="_blank">OHTA</a>, and
+          <a href="https://github.com/rolpotamias/WiLoR" target="_blank">WiLoR</a>
+          for their excellent work.
+        </p>
+      </article>
+    </div>
+  </div>
+</section>
+<!-- End Getting Started -->
+
+
 <!-- End video comparisons -->
 
 
@@ -464,10 +696,12 @@
           <span class="copy-text">Copy</span>
         </button>
       </div>
-        <pre id="bibtex-code"><code>@article{OASIS2026,
-      title={OASIS: Occlusion-aware Single-image Hand Avatar Reconstruction via 3D Gaussian Splatting},
+        <pre id="bibtex-code"><code>@inproceedings{oasis2026,
+  title={OASIS: Occlusion-aware Single-image Hand Avatar Reconstruction via 3D Gaussian Splatting},
   author={Anonymous Authors},
-  year={2025}
+  booktitle={Conference Name},
+  year={2026},
+  note={Placeholder citation}
 }</code></pre>
     </div>
 </section>
