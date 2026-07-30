@@ -5,11 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   
   <!-- Primary Meta Tags -->
-  <!-- TODO: Replace with your paper title and author names -->
-  <meta name="title" content="OASIS: Occlusion-aware Single-image Hand Avatar Reconstruction via 3D Gaussian Splatting - Anonymous Authors">
+  <meta name="title" content="OASIS: Occlusion-aware Single-image Hand Avatar Reconstruction via 3D Gaussian Splatting">
   <meta name="description" content="OASIS: A tailored 3D Gaussian Splatting framework for single-image hand avatar reconstruction with occlusion-aware Gaussian features.">
   <meta name="keywords" content="3D hand reconstruction, Gaussian splatting, hand avatar, single image, 3D reconstruction, computer vision, AI">
-  <meta name="author" content="Anonymous Authors">
+  <meta name="author" content="Zhisheng Han, Shiyao Wu, Jiayan Qiu, Yakun Ju, Lu Liu, Le Zhang, Pengfei Feng, Huiyu Zhou, Zheheng Jiang">
   <meta name="robots" content="index, follow">
   <meta name="language" content="English">
   
@@ -27,8 +26,8 @@
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="PAPER_TITLE - Research Preview">
-  <meta property="article:published_time" content="2024-01-01T00:00:00.000Z">
-  <meta property="article:author" content="FIRST_AUTHOR_NAME">
+  <meta property="article:published_time" content="2026-01-01T00:00:00.000Z">
+  <meta property="article:author" content="Zhisheng Han">
   <meta property="article:section" content="Research">
   <meta property="article:tag" content="KEYWORD1">
   <meta property="article:tag" content="KEYWORD2">
@@ -48,10 +47,18 @@
 
   <!-- Academic/Research Specific -->
   <meta name="citation_title" content="OASIS: Occlusion-aware Single-image Hand Avatar Reconstruction via 3D Gaussian Splatting">
-  <meta name="citation_author" content="Anonymous Authors">
-  <meta name="citation_publication_date" content="2024">
-  <meta name="citation_conference_title" content="CONFERENCE_NAME">
-  <meta name="citation_pdf_url" content="https://YOUR_DOMAIN.com/static/pdfs/paper.pdf">
+  <meta name="citation_author" content="Zhisheng Han">
+  <meta name="citation_author" content="Shiyao Wu">
+  <meta name="citation_author" content="Jiayan Qiu">
+  <meta name="citation_author" content="Yakun Ju">
+  <meta name="citation_author" content="Lu Liu">
+  <meta name="citation_author" content="Le Zhang">
+  <meta name="citation_author" content="Pengfei Feng">
+  <meta name="citation_author" content="Huiyu Zhou">
+  <meta name="citation_author" content="Zheheng Jiang">
+  <meta name="citation_publication_date" content="2026">
+  <meta name="citation_conference_title" content="Proceedings of the 34th ACM International Conference on Multimedia">
+  <meta name="citation_pdf_url" content="https://mova-hand.github.io/MOVA/static/pdfs/OASIS_camera_ready.pdf">
   
   <!-- Additional SEO -->
   <meta name="theme-color" content="#2563eb">
@@ -67,8 +74,7 @@
   <link rel="preconnect" href="https://cdn.jsdelivr.net">
 
 
-  <!-- TODO: Replace with your paper title and authors -->
-  <title>OASIS: Occlusion-aware Single-image Hand Avatar Reconstruction via 3D Gaussian Splatting - Anonymous Authors</title>
+  <title>OASIS: Occlusion-aware Single-image Hand Avatar Reconstruction via 3D Gaussian Splatting</title>
   
   <!-- Favicon and App Icons -->
   <link rel="icon" type="image/svg+xml" href="static/images/oasis.svg">
@@ -112,33 +118,26 @@
     "headline": "OASIS: Occlusion-aware Single-image Hand Avatar Reconstruction via 3D Gaussian Splatting",
     "description": "A tailored 3D Gaussian Splatting framework for single-image hand avatar reconstruction with occlusion-aware Gaussian features.",
     "author": [
-      {
-        "@type": "Person",
-        "name": "FIRST_AUTHOR_NAME",
-        "affiliation": {
-          "@type": "Organization",
-          "name": "INSTITUTION_NAME"
-        }
-      },
-      {
-        "@type": "Person",
-        "name": "SECOND_AUTHOR_NAME",
-        "affiliation": {
-          "@type": "Organization",
-          "name": "INSTITUTION_NAME"
-        }
-      }
+      {"@type": "Person", "name": "Zhisheng Han"},
+      {"@type": "Person", "name": "Shiyao Wu"},
+      {"@type": "Person", "name": "Jiayan Qiu"},
+      {"@type": "Person", "name": "Yakun Ju"},
+      {"@type": "Person", "name": "Lu Liu"},
+      {"@type": "Person", "name": "Le Zhang"},
+      {"@type": "Person", "name": "Pengfei Feng"},
+      {"@type": "Person", "name": "Huiyu Zhou"},
+      {"@type": "Person", "name": "Zheheng Jiang"}
     ],
-    "datePublished": "2024-01-01",
+    "datePublished": "2026-01-01",
     "publisher": {
       "@type": "Organization",
-      "name": "CONFERENCE_OR_JOURNAL_NAME"
+      "name": "ACM Multimedia 2026"
     },
     "url": "https://YOUR_DOMAIN.com/YOUR_PROJECT_PAGE",
     "image": "https://YOUR_DOMAIN.com/static/images/social_preview.png",
     "keywords": ["KEYWORD1", "KEYWORD2", "KEYWORD3", "machine learning", "computer vision"],
     "abstract": "Single-image 3D hand avatar reconstruction is fundamentally ill-posed and particularly challenging due to limited visual evidence under severe self-occlusion and the complex pose-dependent deformation of highly articulated hands. Existing methods predominantly rely on implicit NeRF-style representations, whose volumetric fitting is computationally expensive and often struggles to preserve fine-grained hand details. In this work, we present OASIS, a tailored 3D Gaussian Splatting framework for single-image hand avatar reconstruction. To faithfully encode sparse image-specific appearance cues in single-view reconstruction, we construct geometry-aligned visual evidence tokens by explicitly aligning input image observations with 3D hand geometry and context-adaptively tokenizing the resulting visual evidence. Since severe self-occlusion makes the reliability of image evidence inherently visibility-dependent, we introduce a visibility-conditioned point-image attention to reliably transfer visual evidence to geometric tokens, yielding occlusion-aware Gaussian features for faithful and robust reconstruction. To further capture non-rigid deformation of articulated hands, we introduce a Feature-on-Mesh representation to enable Gaussian deformation to be guided by local surface stretching. Under this framework, we adopt a one-shot adaptation scheme that learns a shared hand prior from multi-identity training data and then fits it to a target image for target-specific reconstruction. Extensive experiments show that OASIS outperforms existing baselines in both visual fidelity and efficiency across challenging poses and in-the-wild scenarios, and further demonstrates strong versatility in downstream applications such as text-to-avatar generation and texture editing. Code will be released upon.",
-    "citation": "BIBTEX_CITATION_HERE",
+    "citation": "@inproceedings{oasis2026, title={OASIS: Occlusion-aware Single-image Hand Avatar Reconstruction via 3D Gaussian Splatting}, author={Zhisheng Han and Shiyao Wu and Jiayan Qiu and Yakun Ju and Lu Liu and Le Zhang and Pengfei Feng and Huiyu Zhou and Zheheng Jiang}, booktitle={Proceedings of the 34th ACM International Conference on Multimedia}, year={2026}}",
     "isAccessibleForFree": true,
     "license": "https://creativecommons.org/licenses/by/4.0/",
     "mainEntity": {
@@ -190,13 +189,21 @@
             <!-- TODO: Replace with your paper title -->
             <h1 class="title is-1 publication-title">OASIS: Occlusion-aware Single-image Hand Avatar Reconstruction via 3D Gaussian Splatting</h1>
             <div class="is-size-5 publication-authors">
-              <span class="author-block">Anonymous Authors</span>
+              <span class="author-block">Zhisheng Han</span>,
+              <span class="author-block">Shiyao Wu</span>,
+              <span class="author-block">Jiayan Qiu</span>,
+              <span class="author-block">Yakun Ju</span>,
+              <span class="author-block">Lu Liu</span>,
+              <span class="author-block">Le Zhang</span>,
+              <span class="author-block">Pengfei Feng</span>,
+              <span class="author-block">Huiyu Zhou</span>,
+              <span class="author-block">Zheheng Jiang</span>
             </div>
 
                   <div class="column has-text-centered">
                     <div class="publication-links">
                       <span class="link-block">
-                        <a href="#" target="_blank"
+                        <a href="static/pdfs/OASIS_camera_ready.pdf" target="_blank"
                         class="external-link button is-normal is-rounded is-dark">
                         <span class="icon">
                           <i class="fas fa-file-pdf"></i>
@@ -698,10 +705,9 @@ example_data/editing/
       </div>
         <pre id="bibtex-code"><code>@inproceedings{oasis2026,
   title={OASIS: Occlusion-aware Single-image Hand Avatar Reconstruction via 3D Gaussian Splatting},
-  author={Anonymous Authors},
-  booktitle={Conference Name},
-  year={2026},
-  note={Placeholder citation}
+  author={Zhisheng Han and Shiyao Wu and Jiayan Qiu and Yakun Ju and Lu Liu and Le Zhang and Pengfei Feng and Huiyu Zhou and Zheheng Jiang},
+  booktitle={Proceedings of the 34th ACM International Conference on Multimedia},
+  year={2026}
 }</code></pre>
     </div>
 </section>
