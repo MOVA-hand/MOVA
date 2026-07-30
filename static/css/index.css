@@ -218,6 +218,31 @@ body {
   margin-right: 0.5rem;
 }
 
+.publication-affiliations,
+.publication-corresponding {
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+
+.publication-affiliations {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.25rem 1rem;
+  margin: -0.75rem auto 0.35rem;
+  max-width: 980px;
+}
+
+.publication-corresponding {
+  margin-bottom: 1.25rem;
+}
+
+.publication-authors sup,
+.publication-affiliations sup,
+.publication-corresponding sup {
+  font-size: 0.7em;
+}
+
 .publication-banner img {
   border-radius: var(--border-radius-lg);
   box-shadow: var(--shadow-lg);
@@ -1207,6 +1232,5 @@ a:focus {
     box-shadow: none !important;
   }
 }
-
 
 
