@@ -480,114 +480,6 @@ code {
   content: "ied!";
 }
 
-/* Getting Started Instructions */
-.getting-started-section {
-  background: var(--background-primary);
-  border-top: 1px solid var(--border-color);
-}
-
-.getting-started-section .container {
-  width: min(84vw, 1320px);
-  max-width: min(84vw, 1320px) !important;
-}
-
-.instruction-update {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  width: fit-content;
-  margin: -0.5rem auto 2rem;
-  padding: 0.85rem 1rem;
-  color: #0f5132;
-  background: #ecfdf5;
-  border: 1px solid #bbf7d0;
-  border-left: 4px solid #10b981;
-  border-radius: 8px;
-  font-weight: 700;
-}
-
-.instruction-update-icon {
-  color: #059669;
-}
-
-.instruction-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1rem;
-}
-
-.instruction-card {
-  background: var(--background-primary);
-  border: 1px solid var(--border-color);
-  border-radius: 8px;
-  padding: 1.25rem;
-  box-shadow: var(--shadow-sm);
-}
-
-.instruction-card-wide {
-  grid-column: 1 / -1;
-}
-
-.instruction-card h3 {
-  display: flex;
-  align-items: center;
-  gap: 0.65rem;
-  margin: 0 0 0.9rem;
-  color: var(--text-primary);
-  font-family: 'Inter', sans-serif;
-  font-size: 1.08rem;
-  font-weight: 750;
-  letter-spacing: 0;
-}
-
-.instruction-icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 32px;
-  height: 32px;
-  flex: 0 0 32px;
-  color: #0f766e;
-  background: #ccfbf1;
-  border-radius: 8px;
-}
-
-.instruction-card p {
-  margin: 0 0 1rem;
-  color: var(--text-secondary);
-  line-height: 1.65;
-}
-
-.instruction-card a {
-  color: var(--primary-color);
-  font-weight: 700;
-  text-decoration: none;
-}
-
-.instruction-card a:hover {
-  color: var(--primary-hover);
-  text-decoration: underline;
-}
-
-.instruction-card pre {
-  margin: 0 0 1rem;
-  padding: 1rem !important;
-  max-height: 420px;
-  border-radius: 8px !important;
-  background: #f8fafc !important;
-  font-size: 0.82rem !important;
-  line-height: 1.55;
-}
-
-.instruction-card pre:last-child,
-.instruction-card p:last-child {
-  margin-bottom: 0;
-}
-
-.instruction-note {
-  font-size: 0.9rem;
-}
-
 /* Scroll to Top Button */
 .scroll-to-top {
   position: fixed;
@@ -1172,23 +1064,6 @@ a:focus {
 }
 
 @media screen and (max-width: 768px) {
-  .getting-started-section .container {
-    width: min(92vw, 1320px);
-    max-width: min(92vw, 1320px) !important;
-  }
-
-  .instruction-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .instruction-card {
-    padding: 1rem;
-  }
-
-  .instruction-card pre {
-    font-size: 0.76rem !important;
-  }
-
   .video-demo-row {
     grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
     gap: 1rem;
@@ -1232,5 +1107,3 @@ a:focus {
     box-shadow: none !important;
   }
 }
-
-
